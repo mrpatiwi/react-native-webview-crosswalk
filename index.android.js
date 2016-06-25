@@ -8,7 +8,12 @@ var {
     NativeModules: { UIManager, CrosswalkWebViewManager: { JSNavigationScheme } }
 } = ReactNative;
 
-var resolveAssetSource = require('resolveAssetSource')
+var resolveAssetSource;
+try {
+  resolveAssetSource = require('resolveAssetSource')
+} catch (e) {
+  resolveAssetSource = require('react-native/Libraries/Image/resolveAssetSource')
+}
 
 var WEBVIEW_REF = 'crosswalkWebView';
 
